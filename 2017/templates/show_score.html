@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <meta name="viewport" content="width=device-width">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <head>
+    <title>忘年会アプリ</title>
+  </head>
+  <body>
+    <h1>忘年会アプリ</h1>
+    <p>スコア</p>
+    <table>
+        <tr>
+            <th>名前(ID)</th>
+            <th>得点</th>
+        </tr>
+        {% for content in contents %}
+        <tr>
+            <td>{{content.name_id}}</td>
+            <td>{{content.score}}</td>
+        </tr>
+        {% endfor%}
+    </table>
+  </body>
+</html>
+
