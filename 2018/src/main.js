@@ -3,6 +3,17 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import firebase from 'firebase'
+
+var config = {
+  apiKey: 'XXX',
+  authDomain: 'XXX',
+  databaseURL: 'XXX',
+  projectId: 'XXX',
+  storageBucket: 'XXX',
+  messagingSenderId: 'XXX'
+}
+firebase.initializeApp(config)
 
 Vue.config.productionTip = false
 
