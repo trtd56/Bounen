@@ -20,15 +20,6 @@ export default {
       database: null
     }
   },
-  // created: function () {
-  //   this.database = firebase.database()
-  //   this.bounenRef = this.database.ref('bounen')
-
-  //   var _this = this
-  //   this.bounenRef.on('value', function (snapshot) {
-  //     _this.bounen = snapshot.val()
-  //   })
-  // },
   methods: {
     registration: function (event) {
       this.database = firebase.database()

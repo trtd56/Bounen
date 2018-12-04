@@ -8,6 +8,7 @@ import locale from 'element-ui/lib/locale/lang/ja'
 
 // My Page
 import TopPage from '@/components/TopPage'
+import ShowScore from '@/components/ShowScore'
 import Q1Page from '@/components/Q1Page'
 import Q2Page from '@/components/Q2Page'
 
@@ -20,6 +21,11 @@ export default new Router({
       path: '/',
       name: 'TopPage',
       component: TopPage
+    },
+    {
+      path: '/ShowScore',
+      name: 'ShowScore',
+      component: ShowScore
     },
     {
       path: '/Q1Page/:username',
