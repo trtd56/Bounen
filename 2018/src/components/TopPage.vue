@@ -3,20 +3,43 @@
     <img src="../assets/logo.png">
     <h2>投票アプリ</h2>
     <input type="text" placeholder="名前を入力して下さい" v-model="InputName">
-    <p>
-      <router-link :to="{ name: 'Q1Page', params: {username: InputName }}">問題1に進む</router-link >
-    </p>
+    <button v-on:click="registration">問題1に進む</button>
   </div>
 </template>
 
 <script>
+import router from '../router'
+import firebase from 'firebase'
+
 export default {
   data () {
     return {
-      InputName: 'test'
+      InputName: 'test',
+      bounen: [],
+      bounenRef: null,
+      database: null
     }
   },
-  methods: {}
+  // created: function () {
+  //   this.database = firebase.database()
+  //   this.bounenRef = this.database.ref('bounen')
+
+  //   var _this = this
+  //   this.bounenRef.on('value', function (snapshot) {
+  //     _this.bounen = snapshot.val()
+  //   })
+  // },
+  methods: {
+    registration: function (event) {
+      this.database = firebase.database()
+      this.bounenRef = this.database.ref('bounen/' + this.InputName)
+      this.bounenRef.set({
+        Q1: {1: 0, 2: 0, 3: 0},
+        Q2: {1: 0, 2: 0, 3: 0}
+      })
+      router.push({name: 'Q1Page', params: {username: this.InputName}})
+    }
+  }
 }
 </script>
 
