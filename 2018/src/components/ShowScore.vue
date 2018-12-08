@@ -30,12 +30,12 @@ export default {
     }
   },
   methods: {
-    show: function (event) {
+    show: async function (e) {
       var scores = []
       this.database = firebase.database()
       this.bounenRef = this.database.ref('bounen')
 
-      this.bounenRef.on('value', function (snapshot) {
+      await this.bounenRef.once('value', function (snapshot) {
         const rootList = snapshot.val()
         // データオブジェクトを配列に変更する
         Object.keys(rootList).forEach((val, _num) => {
@@ -51,10 +51,10 @@ export default {
           scores.push(tmp)
         })
       })
-      this.scores = scores
-      this.scores.sort(function (a, b) {
+      await scores.sort(function (a, b) {
         return a.point > b.point ? -1 : 1
       })
+      this.scores = scores
     }
   }
 }
