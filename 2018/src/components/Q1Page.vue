@@ -29,7 +29,7 @@ import router from '../router'
 import firebase from 'firebase'
 
 export default {
-  name: 'Q1Page',
+  name: 'QPage',
   data () {
     return {
       value1: 0,
