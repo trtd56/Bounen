@@ -91,20 +91,20 @@ function calcQ3 (arr) {
 }
 
 function calcQ4 (arr) {
-  // winner: 4
-  var score = arr[4] * 3 - (arr[1] + arr[2] + arr[3])
+  // winner: 2
+  var score = arr[2] * 3 - (arr[1] + arr[3] + arr[4])
   return score
 }
 
 function calcQ5 (arr) {
-  // winner: 3
-  var score = arr[3] * 3 - (arr[1] + arr[2] + arr[4])
+  // winner: 1
+  var score = arr[1] * 3 - (arr[2] + arr[3] + arr[4])
   return score
 }
 
 function calcQ6 (arr) {
-  // winner: 1
-  var score = arr[1] * 3 - (arr[2] + arr[3] + arr[4])
+  // winner: 3
+  var score = arr[3] * 3 - (arr[1] + arr[2] + arr[4])
   return score
 }
 
