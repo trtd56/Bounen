@@ -1,13 +1,30 @@
 <template>
   <div class="QPage">
+    <p>ユーザー名: {{ $route.params.username }}</p>
     <h3>問題4: せせらぎバトル(パワー)</h3>
-    <p>
-      ユーザー名: {{ $route.params.username }}
-    </p>
-    aaa<el-slider v-model="value1"></el-slider>
-    bbb<el-slider v-model="value2"></el-slider>
-    ccc<el-slider v-model="value3"></el-slider>
-    ddd<el-slider v-model="value4"></el-slider>
+    <p>誰に賭ける？</p>
+    <table align="center">
+    <tr>
+    <td width="50">aaaa</td>
+    <td width="120"><el-slider v-model="value1"></el-slider></td>
+    <td width="50">{{ value1 }}</td>
+    </tr>
+    <tr>
+    <td width="50">bbbb</td>
+    <td width="120"><el-slider v-model="value2"></el-slider></td>
+    <td width="50">{{ value2 }}</td>
+    </tr>
+    <tr>
+    <td width="50">cccc</td>
+    <td width="120"><el-slider v-model="value3"></el-slider></td>
+    <td width="50">{{ value3 }}</td>
+    </tr>
+    <tr>
+    <td width="50">dddd</td>
+    <td width="120"><el-slider v-model="value4"></el-slider></td>
+    <td width="50">{{ value4 }}</td>
+    </tr>
+    </table>
     <button v-on:click="check">回答して次の問題に進む</button>
   </div>
 </template>
