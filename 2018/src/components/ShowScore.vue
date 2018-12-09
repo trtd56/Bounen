@@ -30,31 +30,32 @@ export default {
     }
   },
   methods: {
-    show: function (event) {
+    show: async function (e) {
       var scores = []
       this.database = firebase.database()
       this.bounenRef = this.database.ref('bounen')
 
-      this.bounenRef.on('value', function (snapshot) {
-        const rootList = snapshot.val()
-        // データオブジェクトを配列に変更する
-        Object.keys(rootList).forEach((val, _num) => {
-          var score = 0
-          Object.keys(rootList[val]).forEach((q, point) => {
-            if (q === 'Q1') {
-              score += calcQ1(rootList[val][q])
-            } else if (q === 'Q2') {
-              score += calcQ2(rootList[val][q])
+      await this.bounenRef.once('value', function (snapshot) {
+        snapshot.forEach(player => {
+          let score = 0
+          player.forEach(q => {
+            switch (q.key) {
+              case 'Q1':
+                score += calcQ1(q.val())
+                break
+              case 'Q2':
+                score += calcQ2(q.val())
+                break
             }
           })
-          var tmp = {username: val, point: score}
-          scores.push(tmp)
+          scores.push({username: player.key, point: score})
         })
       })
-      this.scores = scores
-      this.scores.sort(function (a, b) {
+
+      await scores.sort(function (a, b) {
         return a.point > b.point ? -1 : 1
       })
+      this.scores = scores
     }
   }
 }
