@@ -60,7 +60,7 @@ export default {
         this.database = firebase.database()
         this.bounenRef = this.database.ref('bounen/' + this.$route.params.username)
         this.bounenRef.update({
-          Q5: {
+          Q6: {
             1: this.value1,
             2: this.value2,
             3: this.value3,
