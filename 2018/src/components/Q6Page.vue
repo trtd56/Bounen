@@ -25,7 +25,7 @@
     <td width="45">{{value4}}</td>
     </tr>
     </table>
-    <button v-on:click="check">回答して次の問題に進む</button>
+    <button v-on:click="check">回答してトップに戻る</button>
   </div>
 </template>
 
