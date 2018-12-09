@@ -46,6 +46,18 @@ export default {
               case 'Q2':
                 score += calcQ2(q.val())
                 break
+              case 'Q3':
+                score += calcQ3(q.val())
+                break
+              case 'Q4':
+                score += calcQ4(q.val())
+                break
+              case 'Q5':
+                score += calcQ5(q.val())
+                break
+              case 'Q6':
+                score += calcQ6(q.val())
+                break
             }
           })
           scores.push({username: player.key, point: score})
@@ -61,14 +73,41 @@ export default {
 }
 
 function calcQ1 (arr) {
-  var score = arr[1] * 2 - arr[2] - arr[3]
+  // winner: 1
+  var score = arr[1] * 2 - (arr[2] + arr[3])
   return score
 }
 
 function calcQ2 (arr) {
-  var score = -arr[1] + arr[2] * 2 - arr[3]
+  // winner: 2
+  var score = arr[2] * 2 - (arr[1] + arr[3])
   return score
 }
+
+function calcQ3 (arr) {
+  // winner: 3
+  var score = arr[3] * 2 - (arr[1] + arr[2])
+  return score
+}
+
+function calcQ4 (arr) {
+  // winner: 4
+  var score = arr[4] * 3 - (arr[1] + arr[2] + arr[3])
+  return score
+}
+
+function calcQ5 (arr) {
+  // winner: 3
+  var score = arr[3] * 3 - (arr[1] + arr[2] + arr[4])
+  return score
+}
+
+function calcQ6 (arr) {
+  // winner: 1
+  var score = arr[1] * 3 - (arr[2] + arr[3] + arr[4])
+  return score
+}
+
 </script>
 
 <style>

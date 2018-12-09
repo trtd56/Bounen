@@ -13,7 +13,7 @@ import firebase from 'firebase'
 export default {
   data () {
     return {
-      InputName: 'test',
+      InputName: '',
       bounen: [],
       bounenRef: null,
       database: null
