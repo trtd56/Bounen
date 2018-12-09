@@ -1,6 +1,5 @@
 <template>
   <div class="TopPage">
-    <img src="../assets/logo.png">
     <h2>投票アプリ</h2>
     <input type="text" placeholder="名前を入力して下さい" v-model="InputName">
     <button v-on:click="registration">問題1に進む</button>
