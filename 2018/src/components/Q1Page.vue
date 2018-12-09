@@ -1,6 +1,6 @@
 <template>
-  <div class="Q1Page">
-    <h3>問題1</h3>
+  <div class="QPage">
+    <h3>問題1: ボール投げ</h3>
     <p>
       ユーザー名: {{ $route.params.username }}
     </p>

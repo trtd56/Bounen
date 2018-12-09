@@ -1,6 +1,6 @@
 <template>
   <div class="QPage">
-    <h3>問題2: 射的</h3>
+    <h3>問題3: 釣り</h3>
     <p>
       ユーザー名: {{ $route.params.username }}
     </p>
@@ -16,7 +16,7 @@ import router from '../router'
 import firebase from 'firebase'
 
 export default {
-  name: 'Q2Page',
+  name: 'Q3Page',
   data () {
     return {
       value1: 0,
@@ -36,13 +36,13 @@ export default {
         this.database = firebase.database()
         this.bounenRef = this.database.ref('bounen/' + this.$route.params.username)
         this.bounenRef.update({
-          Q2: {
+          Q3: {
             1: this.value1,
             2: this.value2,
             3: this.value3
           }
         })
-        router.push({name: 'Q3Page', params: {username: this.$route.params.username}})
+        router.push({name: 'Q4Page', params: {username: this.$route.params.username}})
       }
     }
   }

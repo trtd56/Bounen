@@ -1,13 +1,14 @@
 <template>
   <div class="QPage">
-    <h3>問題2: 射的</h3>
+    <h3>問題6: せせらぎバトル(スピード)</h3>
     <p>
       ユーザー名: {{ $route.params.username }}
     </p>
     aaa<el-slider v-model="value1"></el-slider>
     bbb<el-slider v-model="value2"></el-slider>
     ccc<el-slider v-model="value3"></el-slider>
-    <button v-on:click="check">回答して次の問題に進む</button>
+    ddd<el-slider v-model="value4"></el-slider>
+    <button v-on:click="check">回答して終わる</button>
   </div>
 </template>
 
@@ -16,12 +17,13 @@ import router from '../router'
 import firebase from 'firebase'
 
 export default {
-  name: 'Q2Page',
+  name: 'Q6Page',
   data () {
     return {
       value1: 0,
       value2: 0,
-      value3: 0
+      value3: 0,
+      value4: 0
     }
   },
   methods: {
@@ -30,19 +32,21 @@ export default {
         'aaa: ' + this.value1 + ' ポイント\n' +
         'bbb: ' + this.value2 + ' ポイント\n' +
         'ccc: ' + this.value3 + ' ポイント\n' +
+        'ddd: ' + this.value4 + ' ポイント\n' +
         'よいですか？'
       )
       if (res === true) {
         this.database = firebase.database()
         this.bounenRef = this.database.ref('bounen/' + this.$route.params.username)
         this.bounenRef.update({
-          Q2: {
+          Q6: {
             1: this.value1,
             2: this.value2,
-            3: this.value3
+            3: this.value3,
+            4: this.value4
           }
         })
-        router.push({name: 'Q3Page', params: {username: this.$route.params.username}})
+        router.push({name: 'TopPage', params: {}})
       }
     }
   }
