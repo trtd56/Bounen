@@ -1,10 +1,18 @@
 <template>
   <div class="TopPage">
-    <h2>投票アプリ</h2>
-    <form @submit.prevent="registration">
-      <input type="text" placeholder="名前を入力して下さい" v-model="InputName" pattern="^[^#\.\$\[\]/]+$"><br />
-      <button type="submit">問題1に進む</button>
-    </form>
+    <div class="header">
+      <h1>投票アプリ</h1>
+    </div>
+    <div class="contents">
+      <h2>ユーザ登録</h2>
+      <form @submit.prevent="registration">
+        <label>
+          <p>ユーザ名</p>
+          <input type="text" placeholder="名前を入力して下さい" v-model="InputName" pattern="^[^#\.\$\[\]/]+$">
+        </label>
+        <button type="submit">問題1に進む</button>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -35,23 +43,21 @@ export default {
 }
 </script>
 
-<style>
-h2 {
-  font-weight: normal;
+<style scoped>
+input[type="text"] {
+  margin: 8px auto;
+  padding: 5px;
+  border: solid 1px lightgray;
+  border-radius: 3px;
+  outline: none;
+  background: none;
+  box-shadow: inner 0 0 4px rgba(0, 0, 0, 0.2);
+  color: black;
+  font-size: 12px;
 }
-a {
-  color: #42b983;
-}
-.TopPage {
-  margin-top: 20px;
 
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center
-}
-input {
-  margin: 10px 0;
-  padding: 10px;
+input[type="text"]::placeholder {
+  color: lightgray;
+  font-size: 12px;
 }
 </style>

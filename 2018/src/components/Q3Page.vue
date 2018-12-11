@@ -1,26 +1,31 @@
 <template>
   <div class="QPage">
-    <p>ユーザー名: {{ $route.params.username }}</p>
-    <h3>問題3: 釣り</h3>
-    <p>誰に賭ける？</p>
-    <table align="center">
-    <tr>
-    <td width="70">{{player1}}</td>
-    <td width="120"><el-slider v-model="value1"></el-slider></td>
-    <td width="45">{{ value1 }}</td>
-    </tr>
-    <tr>
-    <td width="70">{{player2}}</td>
-    <td width="120"><el-slider v-model="value2"></el-slider></td>
-    <td width="45">{{value2}}</td>
-    </tr>
-    <tr>
-    <td width="70">{{player3}}</td>
-    <td width="120"><el-slider v-model="value3"></el-slider></td>
-    <td width="45">{{value3}}</td>
-    </tr>
-    </table>
-    <button v-on:click="check">回答して次の問題に進む</button>
+    <div class="header">
+      <h1>投票アプリ</h1>
+      <p>ユーザ名：{{$route.params.username}}</p>
+    </div>
+    <div class="contents">
+      <h2>問題3 釣り</h2>
+      <p>誰に賭ける？</p>
+      <table align="center">
+      <tr>
+      <td width="70">{{player1}}</td>
+      <td width="120"><el-slider v-model="value1"></el-slider></td>
+      <td width="45">{{ value1 }}</td>
+      </tr>
+      <tr>
+      <td width="70">{{player2}}</td>
+      <td width="120"><el-slider v-model="value2"></el-slider></td>
+      <td width="45">{{value2}}</td>
+      </tr>
+      <tr>
+      <td width="70">{{player3}}</td>
+      <td width="120"><el-slider v-model="value3"></el-slider></td>
+      <td width="45">{{value3}}</td>
+      </tr>
+      </table>
+      <button v-on:click="check">回答して次の問題に進む</button>
+    </div>
   </div>
 </template>
 
