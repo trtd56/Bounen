@@ -1,8 +1,10 @@
 <template>
   <div class="TopPage">
     <h2>投票アプリ</h2>
-    <input type="text" placeholder="名前を入力して下さい" v-model="InputName">
-    <button v-on:click="registration">問題1に進む</button>
+    <form @submit.prevent="registration">
+      <input type="text" placeholder="名前を入力して下さい" v-model="InputName" pattern="^[^#\.\$\[\]/]+$"><br />
+      <button type="submit">問題1に進む</button>
+    </form>
   </div>
 </template>
 
