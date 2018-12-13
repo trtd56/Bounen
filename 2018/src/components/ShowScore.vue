@@ -1,19 +1,24 @@
 <template>
   <div class="ShowScore">
-    <h2>スコア</h2>
-    <button v-on:click="show">表示</button>
-    <table align="center">
-      <tr>
-      <th>順位</th>
-      <th>名前</th>
-      <th>ポイント</th>
-      </tr>
+    <div class="header">
+      <h1>投票アプリ</h1>
+    </div>
+    <div class="contents">
+      <h2>スコア</h2>
+      <button v-on:click="show">表示</button>
+      <table align="center">
+        <tr>
+          <th>順位</th>
+          <th>名前</th>
+          <th>ポイント</th>
+        </tr>
         <tr v-for="(value, key) in scores" :key="key">
           <td>{{ key + 1 }} 位</td>
           <td>{{ value.username }}</td>
           <td>{{ value.point }}</td>
         </tr>
-    </table>
+      </table>
+    </div>
   </div>
 </template>
 
@@ -110,48 +115,16 @@ function calcQ6 (arr) {
 
 </script>
 
-<style>
-h2 {
-  font-weight: normal;
-}
-a {
-  color: #42b983;
-}
-.TopPage {
-  margin-top: 20px;
-
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center
-}
-input {
-  margin: 10px 0;
-  padding: 10px;
+<style scoped>
+button {
+  margin-bottom: 4px;
 }
 
-table {
-  border: 2px solid #42b983;
-  border-radius: 3px;
-  background-color: #fff;
+th:nth-child(1), td:nth-child(1) {
+  width: 64px;
 }
 
-th {
-  background-color: #42b983;
-  color: rgba(255,255,255,0.66);
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-td {
-  background-color: #f9f9f9;
-}
-
-th, td {
-  min-width: 120px;
-  padding: 10px 20px;
+th:nth-child(3), td:nth-child(3) {
+  width: 96px;
 }
 </style>
